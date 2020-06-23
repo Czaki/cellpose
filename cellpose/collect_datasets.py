@@ -3,7 +3,6 @@ from tifffile import imread
 import mxnet as mx
 import mxnet.ndarray as nd
 import numpy as np
-from matplotlib import pyplot as plt
 from mxnet import gpu, cpu
 import time, os
 import cv2

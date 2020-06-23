@@ -16,8 +16,10 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires = ['numpy', 'scipy', 'natsort', 'Pillow<=7.0.0',
                         'tqdm', 'numba', 'scikit-image',
-                        'matplotlib', 'mxnet_mkl', 'opencv-python-headless'],
+                        'matplotlib', 'opencv-python-headless'],
     extras_require = {
+      "default": ['mxnet_mkl'],
+      "mxnet": ["mxnet"],
       "docs": [
         'sphinx>=3.0',
         'sphinxcontrib-apidoc',
