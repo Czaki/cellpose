@@ -1,13 +1,11 @@
 import os
 import numpy as np
-from matplotlib.colors import hsv_to_rgb, rgb_to_hsv
 import cv2
 from scipy.ndimage import gaussian_filter
 import scipy
 import skimage.io
-from skimage import draw
-from skimage.segmentation import find_boundaries
 
+from .rgb_hsv import hsv_to_rgb, rgb_to_hsv
 from . import utils
 
 
@@ -204,12 +202,16 @@ def masks_to_outlines(masks):
         size [Ly x Lx], True pixels are outlines
 
     """
+    from skimage.segmentation import find_boundaries
+
     outlines = np.zeros(masks.shape, np.bool)
     outlines[find_boundaries(masks, mode='inner')] = 1
     return outlines
 
 def outlines_list(masks):
     """ get outlines of masks as a list to loop over for plotting """
+    from skimage import draw
+
     outpix=[]
     for n in np.unique(masks)[1:]:
         mn = masks==n

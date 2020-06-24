@@ -11,7 +11,6 @@ from mxnet import gluon, nd
 import mxnet as mx
 
 from . import transforms, dynamics, utils, resnet_style, plot
-import __main__
 
 class Cellpose():
     """ main model which combines SizeModel and CellposeModel

@@ -14,12 +14,17 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/MouseLand/cellpose",
     packages=setuptools.find_packages(),
-    install_requires = ['numpy', 'scipy', 'natsort', 'Pillow<=7.0.0',
-                        'tqdm', 'numba', 'scikit-image',
-                        'matplotlib', 'opencv-python-headless'],
+    install_requires = ['numpy', 'scipy', 'natsort',
+                        'tqdm', 'numba', 'opencv-python-headless'],
     extras_require = {
-      "default": ['mxnet_mkl'],
+      "default": [
+        'mxnet_mkl',
+        'matplotlib',
+        'scikit-image',
+        'Pillow<=7.0.0'
+      ],
       "mxnet": ["mxnet"],
+      "mxnet_mkl": ["mxnet_mkl"],
       "docs": [
         'sphinx>=3.0',
         'sphinxcontrib-apidoc',
